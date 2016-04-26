@@ -2,7 +2,8 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 An 'is' utility for Electron.  
-`is-electron` provides a set of isomorphic 'is' APIs, this means that you can use it both in main process and renderer process.
+`is-electron` provides a set of isomorphic 'is' APIs, that you can use it both in main and renderer process.  
+See <a href="#usage">usage</a> for more information.
 
 ## Install
 ```
@@ -46,6 +47,7 @@ example: `is.all(is.mac, is.x64)`
 Returns `true` if all the 'is functions' passed as argument are false.  
 example: `is.none(is.windows, is.is32, is.main)`
 
+<a name="usage"></a>
 ## Usage
 - In Main process:
 ```javascript
