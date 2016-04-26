@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test 'is'</title>
+</head>
+
+<body>
+    <h1>Test 'is'</h1>
+    <script src="../is.js"></script>
+    <script>
+      const assert = require('assert')
+      const ipc = require('electron').ipcRenderer
+      ;(() => {
+        assert(window.is, 'is not ok!')
+
+        assert.equal(is.main(), process.type === 'browser', 'is.main() not ok!')
+        assert.equal(is.renderer(), process.type === 'renderer', 'is.renderer() not ok!')
+
+        assert.equal(is.mac(), process.platform === 'darwin', 'is.mac() not ok!')
+        assert.equal(is.windows(), process.platform === 'win32', 'is.windows() not ok!')
+        assert.equal(is.linux(), process.platform === 'linux', 'is.linux() not ok!')
+
+        assert.equal(is.ia32(), process.arch === 'ia32', 'is.ia32() not ok!')
+        assert.equal(is.x64(), process.arch === 'x64', 'is.x64() not ok!')
+
+        assert.equal(is.production(), (process.env.NODE_ENV || 'dev') === 'production', 'is.production() not ok!')
+        assert.equal(is.dev(), (process.env.NODE_ENV || 'dev') === 'dev', 'is.dev() not ok!')
+
+        assert.equal(is.all(is.mac, is.x64), is.mac() && is.x64(), 'is.all() 1 not ok!')
+        assert.equal(is.all(is.mac, is.ia32), is.mac() && is.ia32(), 'is.all() 2 not ok!')
+        assert.equal(is.none(is.windows, is.ia32), !is.windows() && !is.ia32(), 'is.none() 1 not ok!')
+        assert.equal(is.none(is.windows, is.x64), !is.windows() && !is.x64(), 'is.none() 2 not ok!')
+
+        ipc.send('all-test-passed')
+      })()
+    </script>
+</body>
+
+</html>

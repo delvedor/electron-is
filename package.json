@@ -1,0 +1,32 @@
+{
+  "name": "is-electron",
+  "version": "1.0.0",
+  "description": "An 'is' utility for Electron.",
+  "main": "is.js",
+  "scripts": {
+    "pretest": "standard",
+    "test": "electron test/test.js"
+  },
+  "keywords": [
+    "platform",
+    "type",
+    "process",
+    "arch",
+    "env",
+    "electron"
+  ],
+  "author": "Tomas Della Vedova - @delvedor (http://delved.org)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delvedor/is-electron.git"
+  },
+  "bugs": {
+    "url": "https://github.com/delvedor/is-electron/issues"
+  },
+  "homepage": "https://github.com/delvedor/is-electron#readme",
+  "devDependencies": {
+    "electron-prebuilt": "^0.37.7",
+    "standard": "^6.0.8"
+  }
+}
