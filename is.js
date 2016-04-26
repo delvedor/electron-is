@@ -1,6 +1,6 @@
 /*
  * Project: is-electron
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: delvedor
  * Twitter: @delvedor
  * License: MIT
@@ -12,21 +12,6 @@
 ;(() => {
   // Constructor
   function IsApi () {}
-
-  /*
-
-  Una soluzione potrebbe essere fare in modo che IsApi se gli vengono passati argomenti possa eseguirli
-
-  tipo:
-  is(is.mac, is.x64)
-
-  IsApi(...rest) {
-  if (rest)
-  let res
-  for (....) { eseguo le funzioni e modifico di conseguenza res}
-  return res
-}
-*/
 
   // Checks if we are in renderer process
   IsApi.prototype.renderer = () => {
