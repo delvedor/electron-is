@@ -47,6 +47,23 @@ example: `is.all(is.mac, is.x64)`
 Returns `true` if all the 'is functions' passed as argument are false.  
 example: `is.none(is.windows, is.is32, is.main)`
 
+- **is.release(args)**  
+Checks the if the given release is the same of the OS (\*)  
+example: `is.release('10.0.10586')`
+
+- **is.gtRelease(args)**  
+Checks if the given release is greater than the current OS release (\*)  
+example: `is.gtRelease('10.9.5')`
+
+- **is.ltRelease(args)**  
+Checks if the given release is less than the current OS release (\*)  
+example: `is.ltRelease('6.3')`
+
+The [Mac](https://en.wikipedia.org/wiki/Darwin_%28operating_system%29#Release_history) versions are mapped as `osx: darwin`, you must pass the *9.x.y* or *10.x.y* OSX version as argument and not the darwin version.  
+If you are testing a [Windows](https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions) release you must pass the NT release, it can be *x.y* or *x.y.build* .
+
+\* *Not implemented for Linux yet*
+
 <a name="usage"></a>
 ## Usage
 - In Main process:
