@@ -96,6 +96,15 @@
     return true
   }
 
+  // returns true if one of the 'is functions' passed as argument is true
+  IsApi.prototype.one = function (...isFunctions) {
+    if (!isFunctions.length) return
+    for (let i = 0; i < isFunctions.length; i++) {
+      if (isFunctions[i]()) return true
+    }
+    return false
+  }
+
   // checks the if the given release is the same of the OS
   IsApi.prototype.release = function (requested) {
     if (this.mac() && macReleases[requested]) {
@@ -151,10 +160,5 @@
   const is = new IsApi()
 
   // exports
-  if (is.renderer() && window) {
-    if (!window.is) window.is = is
-    window.isElectron = is
-  } else {
-    module.exports = is
-  }
+  module.exports = is
 })()
