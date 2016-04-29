@@ -1,6 +1,6 @@
 {
   "name": "is-electron",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "An 'is' utility for Electron.",
   "main": "is.js",
   "scripts": {
