@@ -49,6 +49,8 @@ function assertions (callback) {
   assert.equal(is.all(is.mac, is.ia32), is.mac() && is.ia32(), 'is.all() 2 not ok!')
   assert.equal(is.none(is.windows, is.ia32), !is.windows() && !is.ia32(), 'is.none() 1 not ok!')
   assert.equal(is.none(is.windows, is.x64), !is.windows() && !is.x64(), 'is.none() 2 not ok!')
+  assert.equal(is.one(is.windows, is.mac), is.windows() || is.mac(), 'is.one() 1 not ok!')
+  assert.equal(is.one(is.windows, is.linux), is.windows() || is.linux(), 'is.one() 2 not ok!')
 
   if (is.mac()) {
     // mac el capitan
