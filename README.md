@@ -80,8 +80,8 @@ console.log(is.main())
 ```
 - In Renderer process:
 ```html
-<script src="node_modules/is-electron/is.js"></script>
 <script>
+    const is = require('is-electron')
     console.log(is.renderer())
 </script>
 ```
