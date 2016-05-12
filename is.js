@@ -1,10 +1,10 @@
 /*
- * Project: is-electron
- * Version: 1.2.0
+ * Project: electron-is
+ * Version: 2.0.0
  * Author: delvedor
  * Twitter: @delvedor
  * License: MIT
- * GitHub: https://github.com/delvedor/is-electron
+ * GitHub: https://github.com/delvedor/electron-is
  */
 
 'use strict'

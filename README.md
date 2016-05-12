@@ -1,13 +1,13 @@
-# is-electron
+# electron-is
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 An 'is' utility for Electron.  
-`is-electron` provides a set of isomorphic 'is' APIs, that you can use it both in main and renderer process.  
+`electron-is` provides a set of isomorphic 'is' APIs, that you can use it both in main and renderer process.  
 See <a href="#usage">usage</a> for more information.
 
 ## Install
 ```
-$ npm install is-electron --save
+$ npm install electron-is --save
 ```
 
 ## API
@@ -73,20 +73,18 @@ If you are testing a [Windows](https://en.wikipedia.org/wiki/List_of_Microsoft_W
 - In Main process:
 ```javascript
 // es6
-import is from 'is-electron'
+import is from 'electron-is'
 // es5
-const is = require('is-electron')
+const is = require('electron-is')
 console.log(is.main())
 ```
 - In Renderer process:
 ```html
 <script>
-    const is = require('is-electron')
+    const is = require('electron-is')
     console.log(is.renderer())
 </script>
 ```
-You can access `is` both from `window.is` and `window.isElectron`.  
-(If `window.is` is already taken `is-electron` does not overwrite it.)
 
 ## Contributing
 If you feel you can help in any way, be it with examples, extra testing, or new features please open a pull request or open an issue.
