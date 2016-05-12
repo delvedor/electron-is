@@ -18,7 +18,7 @@ Returns `true` if you are calling the function from the renderer process.
 - **is.main()**  
 Returns `true` if you are calling the function from the main process.
 
-- **is.mac()**  
+- **is.osx()**  
 Returns `true` if your app is running under Mac OS.
 
 - **is.windows()**  
@@ -27,7 +27,7 @@ Returns `true` if your app is running under Windows OS.
 - **is.linux()**  
 Returns `true` if your app is running under Linux OS.
 
-- **is.ia32()**  
+- **is.x86()**  
 Returns `true` if you the architecture of the processor is `ia32`.
 
 - **is.x64()**  
@@ -95,4 +95,4 @@ ________________________________________________________________________________
 ## License
 The code is released under the MIT license.
 
-The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
+The osx is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
