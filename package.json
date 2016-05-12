@@ -1,7 +1,7 @@
 {
-  "name": "is-electron",
-  "version": "1.2.0",
-  "description": "An 'is' utility for Electron.",
+  "name": "electron-is",
+  "version": "2.0.0",
+  "description": "An 'is' utility for Electron which provides a set of handy functions, with a self-descriptive name.",
   "main": "is.js",
   "scripts": {
     "pretest": "standard",
@@ -24,17 +24,18 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/delvedor/is-electron.git"
+    "url": "git+https://github.com/delvedor/electron-is.git"
   },
   "bugs": {
-    "url": "https://github.com/delvedor/is-electron/issues"
+    "url": "https://github.com/delvedor/electron-is/issues"
   },
-  "homepage": "https://github.com/delvedor/is-electron#readme",
+  "homepage": "https://github.com/delvedor/electron-is#readme",
   "devDependencies": {
-    "electron-prebuilt": "^0.37.7",
+    "electron-prebuilt": "^1.0.1",
     "standard": "^6.0.8"
   },
   "dependencies": {
+    "electron-is-dev": "^0.1.0",
     "semver": "^5.1.0"
   }
 }
