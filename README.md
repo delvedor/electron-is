@@ -41,15 +41,15 @@ Returns `true` if you are running the app in a `dev` environment.
 
 - **is.all(args)**  
 Returns `true` if all the 'is functions' passed as argument are true.  
-example: `is.all(is.mac, is.x64)`
+example: `is.all(is.osx, is.x64)`
 
 - **is.none(args)**  
 Returns `true` if all the 'is functions' passed as argument are false.  
-example: `is.none(is.windows, is.is32, is.main)`
+example: `is.none(is.windows, is.x86, is.main)`
 
 - **is.one(args)**  
 Returns `true` if one of the 'is functions' passed as argument is true.  
-example: `is.one(is.mac, is.linux)`
+example: `is.one(is.osx, is.linux)`
 
 - **is.release(args)**  
 Checks the if the given release is the same of the OS (\*)  
