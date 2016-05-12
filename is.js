@@ -12,6 +12,7 @@
 ;(function () {
   const { gt, lt } = require('semver')
   const { release } = require('os')
+  const isDev = require('electron-is-dev')
   const macReleases = {
     // osx: darwin
     '10.5.0': '9.0',
@@ -44,7 +45,7 @@
   }
 
   // Checks if we are under Mac OS
-  IsApi.prototype.mac = function () {
+  IsApi.prototype.osx = function () {
     return process.platform === 'darwin'
   }
 
@@ -58,8 +59,8 @@
     return process.platform === 'linux'
   }
 
-  // Checks if we are the processor's arch is is32
-  IsApi.prototype.ia32 = function () {
+  // Checks if we are the processor's arch is x86
+  IsApi.prototype.x86 = function () {
     return process.arch === 'ia32'
   }
 
@@ -70,12 +71,12 @@
 
   // Checks if the env is setted to 'production'
   IsApi.prototype.production = function () {
-    return (process.env.NODE_ENV || 'dev') === 'production'
+    return !isDev
   }
 
   // Checks if the env is setted to 'dev'
   IsApi.prototype.dev = function () {
-    return (process.env.NODE_ENV || 'dev') === 'dev'
+    return isDev
   }
 
   // checks if all the 'is functions' passed as arguments are true
@@ -107,7 +108,7 @@
 
   // checks the if the given release is the same of the OS
   IsApi.prototype.release = function (requested) {
-    if (this.mac() && macReleases[requested]) {
+    if (this.osx() && macReleases[requested]) {
       return release() === macReleases[requested]
     } else if (this.windows()) {
       let requested = requested.split('.')
@@ -124,7 +125,7 @@
 
   // checks if the given release is greater than the current OS release
   IsApi.prototype.gtRelease = function (requested) {
-    if (this.mac() && macReleases[requested]) {
+    if (this.osx() && macReleases[requested]) {
       return gt(macReleases[requested], release())
     } else if (this.windows()) {
       let requested = requested.split('.')
@@ -141,7 +142,7 @@
 
   // checks if the given release is less than the current OS release
   IsApi.prototype.ltRelease = function (requested) {
-    if (this.mac() && macReleases[requested]) {
+    if (this.osx() && macReleases[requested]) {
       return lt(macReleases[requested], release())
     } else if (this.windows()) {
       let requested = requested.split('.')
