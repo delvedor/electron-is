@@ -13,23 +13,6 @@
   const { gt, lt } = require('semver')
   const { release } = require('os')
   const isDev = require('electron-is-dev')
-  const macReleases = {
-    // osx: darwin
-    '10.5.0': '9.0',
-    '10.5.8': '9.8',
-    '10.6.0': '10.0',
-    '10.6.8': '10.8',
-    '10.7.0': '11.0.0',
-    '10.7.5': '11.4.2',
-    '10.8.0': '12.0.0',
-    '10.8.5': '12.6.0',
-    '10.9.0': '13.0.0',
-    '10.9.5': '13.4.0',
-    '10.10.0': '14.0.0',
-    '10.10.5': '14.5.0',
-    '10.11.0': '15.0.0',
-    '10.11.4': '15.4.0'
-  }
 
   // Constructor
   function IsApi () {}
@@ -108,8 +91,8 @@
 
   // checks the if the given release is the same of the OS
   IsApi.prototype.release = function (requested) {
-    if (this.osx() && macReleases[requested]) {
-      return release() === macReleases[requested]
+    if (this.osx()) {
+      return requested === osxRelease()
     } else if (this.windows()) {
       let requested = requested.split('.')
       let actual = release().split('.')
@@ -125,8 +108,8 @@
 
   // checks if the given release is greater than the current OS release
   IsApi.prototype.gtRelease = function (requested) {
-    if (this.osx() && macReleases[requested]) {
-      return gt(macReleases[requested], release())
+    if (this.osx()) {
+      return gt(requested, osxRelease())
     } else if (this.windows()) {
       let requested = requested.split('.')
       let actual = release().split('.')
@@ -142,8 +125,8 @@
 
   // checks if the given release is less than the current OS release
   IsApi.prototype.ltRelease = function (requested) {
-    if (this.osx() && macReleases[requested]) {
-      return lt(macReleases[requested], release())
+    if (this.osx()) {
+      return lt(requested, osxRelease())
     } else if (this.windows()) {
       let requested = requested.split('.')
       let actual = release().split('.')
@@ -155,6 +138,12 @@
       // Not implemented for Linux yet
       return null
     }
+  }
+
+  // returns the current osx release
+  function osxRelease () {
+    let actual = release().split('.')
+    return `10.${actual[0] - 4}.${actual[1]}`
   }
 
   // new instace
