@@ -27,7 +27,7 @@ IsApi.prototype.main = function () {
 }
 
 // Checks if we are under Mac OS
-IsApi.prototype.osx = function () {
+IsApi.prototype.osx = IsApi.prototype.macOS = function () {
   return process.platform === 'darwin'
 }
 
