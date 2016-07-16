@@ -1,6 +1,6 @@
 {
   "name": "electron-is",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "An 'is' utility for Electron which provides a set of handy functions, with a self-descriptive name.",
   "main": "is.js",
   "scripts": {
@@ -31,11 +31,11 @@
   },
   "homepage": "https://github.com/delvedor/electron-is#readme",
   "devDependencies": {
-    "electron-prebuilt": "^1.2.2",
+    "electron-prebuilt": "^1.2.7",
     "standard": "^7.1.2"
   },
   "dependencies": {
     "electron-is-dev": "^0.1.1",
-    "semver": "^5.1.0"
+    "semver": "^5.3.0"
   }
 }
