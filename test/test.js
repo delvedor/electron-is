@@ -36,6 +36,7 @@ function assertions (callback) {
   assert.equal(is.renderer(), process.type === 'renderer', 'is.renderer() not ok!')
 
   assert.equal(is.osx(), process.platform === 'darwin', 'is.osx() not ok!')
+  assert.equal(is.macOS(), process.platform === 'darwin', 'is.macOS() not ok!')
   assert.equal(is.windows(), process.platform === 'win32', 'is.windows() not ok!')
   assert.equal(is.linux(), process.platform === 'linux', 'is.linux() not ok!')
 
