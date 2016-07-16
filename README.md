@@ -18,7 +18,7 @@ Returns `true` if you are calling the function from the renderer process.
 - **is.main()**  
 Returns `true` if you are calling the function from the main process.
 
-- **is.osx()**  
+- **is.macOS()** *aliases* **is.osx()**  
 Returns `true` if your app is running under Mac OS.
 
 - **is.windows()**  
@@ -95,6 +95,8 @@ The code follows the Standard code style.
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 ______________________________________________________________________________________________________________________
 ## License
-The code is released under the MIT license.
+**[MIT](https://github.com/delvedor/electron-is/blob/master/LICENSE)**
 
-The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.
+*The software is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and non infringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software.*
+
+Copyright © 2016 Tomas Della Vedova
