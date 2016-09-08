@@ -57,13 +57,13 @@ function assertions (callback) {
 
   if (is.osx()) {
     // mac el capitan
-    assert.equal(is.release('10.11.5'), true, 'is.release() not ok!')
+    assert.equal(is.release('10.11.6'), true, 'is.release() not ok!')
 
-    assert.equal(is.gtRelease('10.11.5'), false, 'is.gtRelease() 1 not ok!')
+    assert.equal(is.gtRelease('10.11.6'), false, 'is.gtRelease() 1 not ok!')
     assert.equal(is.gtRelease('10.12.0'), true, 'is.gtRelease() 2 not ok!')
     assert.equal(is.gtRelease('10.8.0'), false, 'is.gtRelease() 3 not ok!')
 
-    assert.equal(is.ltRelease('10.11.5'), false, 'is.ltRelease() 1 not ok!')
+    assert.equal(is.ltRelease('10.11.6'), false, 'is.ltRelease() 1 not ok!')
     assert.equal(is.ltRelease('10.12.0'), false, 'is.ltRelease() 2 not ok!')
     assert.equal(is.ltRelease('10.8.0'), true, 'is.ltRelease() 3 not ok!')
   } else if (is.windows()) {
