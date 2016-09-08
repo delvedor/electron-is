@@ -28,6 +28,8 @@
         assert.equal(is.dev(), (process.env.NODE_ENV || 'dev') === 'dev', 'is.dev() not ok!')
 
         assert.equal(is.sandbox(), ('APP_SANDBOX_CONTAINER_ID' in process.env), 'is.sandbox() not ok!')
+        assert.equal(is.mas(), process.mas === true, 'is.mas() not ok!')
+        assert.equal(is.windowsStore(), process.windowsStore === true, 'is.windowsStore() not ok!')
 
         assert.equal(is.all(is.osx, is.x64), is.osx() && is.x64(), 'is.all() 1 not ok!')
         assert.equal(is.all(is.osx, is.x86), is.osx() && is.x86(), 'is.all() 2 not ok!')
