@@ -1,6 +1,6 @@
 /*
  * Project: electron-is
- * Version: 2.1.0
+ * Version: 2.2.0
  * Author: delvedor
  * Twitter: @delvedor
  * License: MIT
