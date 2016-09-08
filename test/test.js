@@ -46,6 +46,8 @@ function assertions (callback) {
   assert.equal(is.production(), (process.env.NODE_ENV || 'dev') === 'production', 'is.production() not ok!')
   assert.equal(is.dev(), (process.env.NODE_ENV || 'dev') === 'dev', 'is.dev() not ok!')
 
+  assert.equal(is.sandbox(), ('APP_SANDBOX_CONTAINER_ID' in process.env), 'is.sandbox() not ok!')
+
   assert.equal(is.all(is.osx, is.x64), is.osx() && is.x64(), 'is.all() 1 not ok!')
   assert.equal(is.all(is.osx, is.x86), is.osx() && is.x86(), 'is.all() 2 not ok!')
   assert.equal(is.none(is.windows, is.x86), !is.windows() && !is.x86(), 'is.none() 1 not ok!')
