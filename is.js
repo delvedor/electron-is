@@ -61,6 +61,11 @@ IsApi.prototype.dev = function () {
   return isDev
 }
 
+// Checks if the app is running in a sandbox on macOS
+IsApi.prototype.sandbox = function () {
+  return 'APP_SANDBOX_CONTAINER_ID' in process.env
+}
+
 // checks if all the 'is functions' passed as arguments are true
 IsApi.prototype.all = function (...isFunctions) {
   if (!isFunctions.length) return

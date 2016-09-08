@@ -39,6 +39,9 @@ Returns `true` if you are running the app in a `production` environment.
 - **is.dev()**  
 Returns `true` if you are running the app in a `dev` environment.
 
+- **is.sandbox()** ***macOS***  
+Returns `true` if you are running the app in a `sandbox` environment under macOS
+
 - **is.all(args)**  
 Returns `true` if all the 'is functions' passed as argument are true.  
 example: `is.all(is.osx, is.x64)`
