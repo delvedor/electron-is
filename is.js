@@ -65,6 +65,14 @@ IsApi.prototype.dev = function () {
 IsApi.prototype.sandbox = function () {
   return 'APP_SANDBOX_CONTAINER_ID' in process.env
 }
+// Checks if the app is running as a Mac App Store build
+IsApi.prototype.mas = function () {
+  return process.mas === true
+}
+// Checks if the app is running as a Windows Store (appx) build
+IsApi.prototype.windowsStore = function () {
+  return process.windowsStore === true
+}
 
 // checks if all the 'is functions' passed as arguments are true
 IsApi.prototype.all = function (...isFunctions) {
