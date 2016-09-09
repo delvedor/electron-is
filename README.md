@@ -39,8 +39,14 @@ Returns `true` if you are running the app in a `production` environment.
 - **is.dev()**  
 Returns `true` if you are running the app in a `dev` environment.
 
-- **is.sandbox()** ***macOS***  
-Returns `true` if you are running the app in a `sandbox` environment under macOS
+- **is.sandbox()** *only* ***macOS***  
+Returns `true` if you are running the app in a `sandbox` environment under macOS.
+
+- **is.mas()**  
+Returns `true` if the app is running as a Mac App Store build.
+
+- **is.windowsStore()**  
+Returns `true` if the app is running as a Windows Store (appx) build.
 
 - **is.all(args)**  
 Returns `true` if all the 'is functions' passed as argument are true.  
