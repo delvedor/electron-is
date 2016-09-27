@@ -18,12 +18,28 @@ function IsApi () {}
 
 // Checks if we are in renderer process
 IsApi.prototype.renderer = function () {
-  return process.type === 'renderer'
+  // Has the process been disabled?
+  if (typeof process === 'undefined') {
+    return false
+  }
+  // Is it being mocked?
+  if (process.hasOwnProperty('type')) {
+    return process.type === 'renderer'
+  }
+  return false
 }
 
 // Checks if we are in main process
 IsApi.prototype.main = function () {
-  return process.type === 'browser'
+  // Has the process been disabled?
+  if (typeof process === 'undefined') {
+    return false
+  }
+  // Is it being mocked?
+  if (process.hasOwnProperty('type')) {
+    return process.type === 'browser'
+  }
+  return false
 }
 
 // Checks if we are under Mac OS
