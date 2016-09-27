@@ -26,8 +26,14 @@ IsApi.prototype.main = function () {
   return process.type === 'browser'
 }
 
+// Checks if we are in a standard browser
 IsApi.prototype.standardBrowser = function () {
-  return (typeof process === 'undefined')
+  // We are in a browser enviroment, or with process disabled
+  if (typeof process === 'undefined') {
+    return true
+  }
+  // We have the process enabled or it is being mocked. So, are we in electron?
+  return !(this.renderer() || this.main())
 }
 
 // Checks if we are under Mac OS
