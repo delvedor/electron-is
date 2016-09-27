@@ -18,8 +18,10 @@ Returns `true` if you are calling the function from the renderer process.
 - **is.main()**  
 Returns `true` if you are calling the function from the main process.
 
-- **is.standarBrowser()**  
-Return `true` if you are calling the function from a standar browser.
+- **is.standardBrowser()**  
+Return `true` if you are calling the function from a standard browser.
+This is an edge scenario, but maybe you are developing an electron app that you
+would like to use or test in browser as well, but still distinguish between them.
 
 - **is.macOS()** *aliases* **is.osx()**  
 Returns `true` if your app is running under Mac OS.
