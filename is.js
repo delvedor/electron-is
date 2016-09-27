@@ -106,7 +106,7 @@ IsApi.prototype.release = function (requested) {
   if (this.osx()) {
     return requested === osxRelease()
   } else if (this.windows()) {
-    let requested = requested.split('.')
+    requested = requested.split('.')
     let actual = release().split('.')
     if (requested.length === 2) {
       return `${actual[0]}.${actual[1]}` === `${requested[0]}.${requested[1]}`
@@ -123,7 +123,7 @@ IsApi.prototype.gtRelease = function (requested) {
   if (this.osx()) {
     return gt(requested, osxRelease())
   } else if (this.windows()) {
-    let requested = requested.split('.')
+    requested = requested.split('.')
     let actual = release().split('.')
     if (requested.length === 2) {
       return gt(`${requested[0]}.${requested[1]}.0`, `${actual[0]}.${actual[1]}.0`)
@@ -140,7 +140,7 @@ IsApi.prototype.ltRelease = function (requested) {
   if (this.osx()) {
     return lt(requested, osxRelease())
   } else if (this.windows()) {
-    let requested = requested.split('.')
+    requested = requested.split('.')
     let actual = release().split('.')
     if (requested.length === 2) {
       return lt(`${requested[0]}.${requested[1]}.0`, `${actual[0]}.${actual[1]}.0`)
