@@ -106,7 +106,7 @@ IsApi.prototype.release = function (requested) {
   if (this.osx()) {
     return requested === osxRelease()
   } else if (this.windows()) {
-    let requested = requested.split('.')
+    requested = requested.split('.')
     let actual = release().split('.')
     if (requested.length === 2) {
       return `${actual[0]}.${actual[1]}` === `${requested[0]}.${requested[1]}`
