@@ -33,7 +33,7 @@ IsApi.prototype.standardBrowser = function () {
     return true
   }
   // We have the process enabled or it is being mocked. So, are we in electron?
-  return !(this.renderer() || this.main())
+  return !process.hasOwnProperty('type')
 }
 
 // Checks if we are under Mac OS
