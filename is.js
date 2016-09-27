@@ -26,6 +26,16 @@ IsApi.prototype.main = function () {
   return process.type === 'browser'
 }
 
+// Checks if we are in a standard browser
+IsApi.prototype.standardBrowser = function () {
+  // We are in a browser enviroment, or with process disabled
+  if (typeof process === 'undefined') {
+    return true
+  }
+  // We have the process enabled or it is being mocked. So, are we in electron?
+  return !process.hasOwnProperty('type')
+}
+
 // Checks if we are under Mac OS
 IsApi.prototype.osx = IsApi.prototype.macOS = function () {
   return process.platform === 'darwin'
