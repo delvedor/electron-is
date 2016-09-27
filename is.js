@@ -26,6 +26,10 @@ IsApi.prototype.main = function () {
   return process.type === 'browser'
 }
 
+IsApi.prototype.standardBrowser = function () {
+  return (typeof process === 'undefined')
+}
+
 // Checks if we are under Mac OS
 IsApi.prototype.osx = IsApi.prototype.macOS = function () {
   return process.platform === 'darwin'

@@ -34,6 +34,7 @@ ipc.on('all-test-passed', (event) => {
 function assertions (callback) {
   assert.equal(is.main(), process.type === 'browser', 'is.main() not ok!')
   assert.equal(is.renderer(), process.type === 'renderer', 'is.renderer() not ok!')
+  assert.equal(is.standardBrowser(), false, 'is.standardBrowser() not ok!')
 
   assert.equal(is.osx(), process.platform === 'darwin', 'is.osx() not ok!')
   assert.equal(is.macOS(), process.platform === 'darwin', 'is.macOS() not ok!')

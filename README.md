@@ -18,6 +18,9 @@ Returns `true` if you are calling the function from the renderer process.
 - **is.main()**  
 Returns `true` if you are calling the function from the main process.
 
+- **is.standarBrowser()**  
+Return `true` if you are calling the function from a standar browser.
+
 - **is.macOS()** *aliases* **is.osx()**  
 Returns `true` if your app is running under Mac OS.
 
