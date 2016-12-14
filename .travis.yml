@@ -1,6 +1,7 @@
 language: node_js
-node_js:
-  - '6'
+
+env:
+  - NODE=6
 
 os:
   - linux
@@ -10,3 +11,16 @@ addons:
   apt:
     packages:
       - xvfb
+
+install:
+  - rm -rf ~/.nvm
+  - git clone https://github.com/creationix/nvm.git ~/.nvm
+  - source ~/.nvm/nvm.sh
+  - nvm install $NODE
+  - nvm --version
+  - node --version
+  - npm --version
+  - npm install
+
+script:
+  - npm test
