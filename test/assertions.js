@@ -48,7 +48,7 @@ function assertions () {
     assert.equal(is.release('10.0'), true, 'is.release() not ok!')
     assert.equal(is.release('10.0.14393'), true, 'is.release() not ok!')
   } else {
-    assert.equal(is.release('1.2.3'), false, 'is.release() not ok!')
+    assert.equal(is.release('1.2.3'), null, 'is.release() not ok!')
   }
 
   return true
