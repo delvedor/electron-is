@@ -1,5 +1,5 @@
 # electron-is
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/) [![Build Status](https://travis-ci.org/delvedor/electron-is.svg?branch=master)](https://travis-ci.org/delvedor/electron-is)
 
 An 'is' utility for Electron.  
 `electron-is` provides a set of isomorphic 'is' APIs, that you can use it both in main and renderer process.  

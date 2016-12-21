@@ -1,37 +1,11 @@
 'use strict'
 
-const path = require('path')
 const assert = require('assert')
-const electron = require('electron')
+const release = require('os').release
+const path = require('path')
+const is = require(path.join(__dirname, '..', '..', '..', 'is'))
 
-const ipc = electron.ipcMain
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
-const is = require('../is')
-let mainWindow
-
-app.on('ready', function createWindow () {
-  mainWindow = new BrowserWindow({
-    width: 400,
-    height: 300
-  })
-  mainWindow.loadURL(path.join('file://', __dirname, '/test.html'))
-  mainWindow.openDevTools()
-  mainWindow.on('closed', function windowClosed () {
-    app.quit()
-  })
-})
-
-ipc.on('all-test-passed', (event) => {
-  assertions(() => {
-    console.log('All test passed!')
-    setTimeout(() => {
-      app.quit()
-    }, 1000)
-  })
-})
-
-function assertions (callback) {
+function assertions () {
   assert.equal(is.main(), process.type === 'browser', 'is.main() not ok!')
   assert.equal(is.renderer(), process.type === 'renderer', 'is.renderer() not ok!')
 
@@ -58,23 +32,32 @@ function assertions (callback) {
   assert.equal(is.one(is.windows, is.linux), is.windows() || is.linux(), 'is.one() 2 not ok!')
 
   if (is.osx()) {
+    const osx = osxRelease()
     // mac el capitan
-    assert.equal(is.release('10.11.6'), true, 'is.release() not ok!')
+    assert.equal(is.release(osx), true, 'is.release() not ok!')
 
-    assert.equal(is.gtRelease('10.11.6'), false, 'is.gtRelease() 1 not ok!')
-    assert.equal(is.gtRelease('10.12.0'), true, 'is.gtRelease() 2 not ok!')
-    assert.equal(is.gtRelease('10.8.0'), false, 'is.gtRelease() 3 not ok!')
+    assert.equal(is.gtRelease(osx), false, 'is.gtRelease() 1 not ok!')
+    assert.equal(is.gtRelease('100.100.100'), true, 'is.gtRelease() 2 not ok!')
+    assert.equal(is.gtRelease('1.0.0'), false, 'is.gtRelease() 3 not ok!')
 
-    assert.equal(is.ltRelease('10.11.6'), false, 'is.ltRelease() 1 not ok!')
-    assert.equal(is.ltRelease('10.12.0'), false, 'is.ltRelease() 2 not ok!')
-    assert.equal(is.ltRelease('10.8.0'), true, 'is.ltRelease() 3 not ok!')
+    assert.equal(is.ltRelease(osx), false, 'is.ltRelease() 1 not ok!')
+    assert.equal(is.ltRelease('100.100.100'), false, 'is.ltRelease() 2 not ok!')
+    assert.equal(is.ltRelease('1.0.0'), true, 'is.ltRelease() 3 not ok!')
   } else if (is.windows()) {
     // tests Windows 10 AU
     assert.equal(is.release('10.0'), true, 'is.release() not ok!')
     assert.equal(is.release('10.0.14393'), true, 'is.release() not ok!')
   } else {
-    assert.equal(is.release('1.2.3'), false, 'is.release() not ok!')
+    assert.equal(is.release('1.2.3'), null, 'is.release() not ok!')
   }
 
-  callback()
+  return true
 }
+
+// returns the current osx release
+function osxRelease () {
+  const actual = release().split('.')
+  return `10.${actual[0] - 4}.${actual[1]}`
+}
+
+assertions()

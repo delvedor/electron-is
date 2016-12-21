@@ -9,8 +9,10 @@
 
 'use strict'
 
-const { gt, lt } = require('semver')
-const { release } = require('os')
+const semver = require('semver')
+const gt = semver.gt
+const lt = semver.lt
+const release = require('os').release
 const isDev = require('electron-is-dev')
 
 // Constructor
@@ -75,27 +77,39 @@ IsApi.prototype.windowsStore = function () {
 }
 
 // checks if all the 'is functions' passed as arguments are true
-IsApi.prototype.all = function (...isFunctions) {
+IsApi.prototype.all = function () {
+  const isFunctions = new Array(arguments.length)
+  for (var i = 0; i < isFunctions.length; i++) {
+    isFunctions[i] = arguments[i]
+  }
   if (!isFunctions.length) return
-  for (let i = 0; i < isFunctions.length; i++) {
+  for (i = 0; i < isFunctions.length; i++) {
     if (!isFunctions[i]()) return false
   }
   return true
 }
 
 // checks if all the 'is functions' passed as arguments are false
-IsApi.prototype.none = function (...isFunctions) {
+IsApi.prototype.none = function () {
+  const isFunctions = new Array(arguments.length)
+  for (var i = 0; i < isFunctions.length; i++) {
+    isFunctions[i] = arguments[i]
+  }
   if (!isFunctions.length) return
-  for (let i = 0; i < isFunctions.length; i++) {
+  for (i = 0; i < isFunctions.length; i++) {
     if (isFunctions[i]()) return false
   }
   return true
 }
 
 // returns true if one of the 'is functions' passed as argument is true
-IsApi.prototype.one = function (...isFunctions) {
+IsApi.prototype.one = function () {
+  const isFunctions = new Array(arguments.length)
+  for (var i = 0; i < isFunctions.length; i++) {
+    isFunctions[i] = arguments[i]
+  }
   if (!isFunctions.length) return
-  for (let i = 0; i < isFunctions.length; i++) {
+  for (i = 0; i < isFunctions.length; i++) {
     if (isFunctions[i]()) return true
   }
   return false
@@ -107,7 +121,7 @@ IsApi.prototype.release = function (requested) {
     return requested === osxRelease()
   } else if (this.windows()) {
     requested = requested.split('.')
-    let actual = release().split('.')
+    const actual = release().split('.')
     if (requested.length === 2) {
       return `${actual[0]}.${actual[1]}` === `${requested[0]}.${requested[1]}`
     }
@@ -124,7 +138,7 @@ IsApi.prototype.gtRelease = function (requested) {
     return gt(requested, osxRelease())
   } else if (this.windows()) {
     requested = requested.split('.')
-    let actual = release().split('.')
+    const actual = release().split('.')
     if (requested.length === 2) {
       return gt(`${requested[0]}.${requested[1]}.0`, `${actual[0]}.${actual[1]}.0`)
     }
@@ -141,7 +155,7 @@ IsApi.prototype.ltRelease = function (requested) {
     return lt(requested, osxRelease())
   } else if (this.windows()) {
     requested = requested.split('.')
-    let actual = release().split('.')
+    const actual = release().split('.')
     if (requested.length === 2) {
       return lt(`${requested[0]}.${requested[1]}.0`, `${actual[0]}.${actual[1]}.0`)
     }
@@ -154,16 +168,9 @@ IsApi.prototype.ltRelease = function (requested) {
 
 // returns the current osx release
 function osxRelease () {
-  let actual = release().split('.')
+  const actual = release().split('.')
   return `10.${actual[0] - 4}.${actual[1]}`
 }
 
-// new instace
-function isBuilder () {
-  if (!(this instanceof IsApi)) {
-    return new IsApi()
-  }
-}
-
 // exports
-module.exports = isBuilder()
+module.exports = new IsApi()
