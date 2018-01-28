@@ -95,7 +95,7 @@ console.log(is.main())
 </script>
 ```
 ## Acknowledgements
-`electron-is` makes use of [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) package from @sindresorhus.
+`electron-is` makes use of [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) package from [@sindresorhus](https://github.com/sindresorhus).
 
 ## Contributing
 If you feel you can help in any way, be it with examples, extra testing, or new features please open a pull request or open an issue.
