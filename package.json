@@ -35,7 +35,7 @@
     "standard": "^8.6.0"
   },
   "dependencies": {
-    "electron-is-dev": "^0.1.2",
+    "electron-is-dev": "^0.3.0",
     "semver": "^5.3.0"
   }
 }
