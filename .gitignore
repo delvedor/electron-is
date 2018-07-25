@@ -38,3 +38,6 @@ node_modules
 
 # vim swap files
 *.swp
+
+# locks
+package-lock.json

@@ -21,6 +21,9 @@
     "renderer"
   ],
   "author": "Tomas Della Vedova - @delvedor (http://delved.org)",
+  "contributors": [
+    "Masoud Ghorbani <msud.ghorbani@gmail.com> (http://msud.ir)"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
