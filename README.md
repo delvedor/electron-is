@@ -12,40 +12,40 @@ $ npm install electron-is --save
 
 ## API
 
-- **is.renderer()**  
+- **is.renderer**  
 Returns `true` if you are calling the function from the renderer process.
 
-- **is.main()**  
+- **is.main**  
 Returns `true` if you are calling the function from the main process.
 
-- **is.macOS()** *aliases* **is.osx()**  
+- **is.macOS** *aliases* **is.osx**  
 Returns `true` if your app is running under Mac OS.
 
-- **is.windows()**  
+- **is.windows**  
 Returns `true` if your app is running under Windows OS.
 
-- **is.linux()**  
+- **is.linux**  
 Returns `true` if your app is running under Linux OS.
 
-- **is.x86()**  
+- **is.x86**  
 Returns `true` if you the architecture of the processor is `ia32`.
 
-- **is.x64()**  
+- **is.x64**  
 Returns `true` if you the architecture of the processor is `x64`.
 
-- **is.production()**  
+- **is.production**  
 Returns `true` if you are running the app in a `production` environment.
 
-- **is.dev()**  
+- **is.dev**  
 Returns `true` if you are running the app in a `dev` environment.
 
-- **is.sandbox()** *only* ***macOS***  
+- **is.sandbox** *only* ***macOS***  
 Returns `true` if you are running the app in a `sandbox` environment under macOS.
 
-- **is.mas()**  
+- **is.mas**  
 Returns `true` if the app is running as a Mac App Store build.
 
-- **is.windowsStore()**  
+- **is.windowsStore**  
 Returns `true` if the app is running as a Windows Store (appx) build.
 
 - **is.all(args)**  
@@ -85,13 +85,13 @@ If you are testing a [Windows](https://en.wikipedia.org/wiki/List_of_Microsoft_W
 import is from 'electron-is'
 // es5
 const is = require('electron-is')
-console.log(is.main())
+console.log(is.main)
 ```
 - In Renderer process:
 ```html
 <script>
     const is = require('electron-is')
-    console.log(is.renderer())
+    console.log(is.renderer)
 </script>
 ```
 ## Acknowledgements
